@@ -2,9 +2,7 @@ package code;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Random;
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -19,7 +17,7 @@ public class CajaQueue {
     private final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
     public CajaQueue(int numeroCajas) {
-    	semaphore = new Semaphore(numeroCajas, true);
+    	semaphore = new Semaphore(numeroCajas);
     	cajas = new Caja[numeroCajas];
     	cajasAvailable = new boolean[numeroCajas];
     	for(int i = 0; i < numeroCajas; i++) {
